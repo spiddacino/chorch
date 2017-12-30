@@ -1,15 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Chorch.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
+
 namespace Chorch
 {
-    public class Startup
+	public class Startup
     {
         public Startup(IConfiguration configuration)
         {
@@ -22,6 +21,11 @@ namespace Chorch
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+			var connstring = Configuration.GetConnectionString("ChorchConnection");
+			services.AddDbContext<ChorchDbContext>(options =>
+													options.UseMySql(connstring, b => b.MigrationsAssembly("Chorch")));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

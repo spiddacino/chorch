@@ -4,12 +4,20 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
+<ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.1" PrivateAssets="All" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.0.0-rtm-10056" />
   </ItemGroup>
 
   <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />
+    <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="2.0.0" />
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.1" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <Folder Include="Data\" />
+  </ItemGroup>
 </Project>
