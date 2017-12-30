@@ -3,7 +3,6 @@
 /Users/Chi/Projects/Chorch/bin/Debug/netcoreapp2.0/Chorch.runtimeconfig.dev.json
 /Users/Chi/Projects/Chorch/bin/Debug/netcoreapp2.0/Chorch.dll
 /Users/Chi/Projects/Chorch/bin/Debug/netcoreapp2.0/Chorch.pdb
-/Users/Chi/Projects/Chorch/obj/Debug/netcoreapp2.0/Chorch.csprojResolveAssemblyReference.cache
 /Users/Chi/Projects/Chorch/obj/Debug/netcoreapp2.0/Chorch.csproj.CoreCompileInputs.cache
 /Users/Chi/Projects/Chorch/obj/Debug/netcoreapp2.0/Chorch.AssemblyInfoInputs.cache
 /Users/Chi/Projects/Chorch/obj/Debug/netcoreapp2.0/Chorch.AssemblyInfo.cs

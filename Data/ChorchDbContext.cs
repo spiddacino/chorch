@@ -11,9 +11,9 @@ namespace Chorch.Models
 
 		public DbSet<Member> Member { get; set; }
 
-		protected override void OnModelCreating(ModelBuilder modelBuilder)
-		{
-			base.OnModelCreating(modelBuilder);
-		}
+		//protected override void OnModelCreating(ModelBuilder modelBuilder)
+		//{
+		//	base.OnModelCreating(modelBuilder);
+		//}
 	}
 }
