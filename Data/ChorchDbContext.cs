@@ -1,7 +1,14 @@
 ﻿using System;
+using Chorch.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Chorch.Models
+
+
+namespace Chorch.Data
 {
 	public class ChorchDbContext : DbContext
 	{
@@ -9,11 +16,16 @@ namespace Chorch.Models
 		{
 		}
 
-		public DbSet<Member> Member { get; set; }
+		public DbSet<Member> Members { get; set; }
 
-		//protected override void OnModelCreating(ModelBuilder modelBuilder)
-		//{
-		//	base.OnModelCreating(modelBuilder);
-		//}
+		protected override void OnModelCreating(ModelBuilder modelBuilder)
+		{
+			base.OnModelCreating(modelBuilder);
+			//modelBuilder.Entity<Member>().ToTable("Member");
+
+		}
+
+		//protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+		//=> optionsBuilder.UseMySql("ChorchConnection");
 	}
 }

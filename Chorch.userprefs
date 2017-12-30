@@ -1,24 +1,12 @@
 ﻿<Properties StartupConfiguration="{64195664-C26E-4CBC-87FE-3222982396C7}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Models/Member.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="appsettings.json">
     <Files>
-      <File FileName="Data/ChorchDbContext.cs" Line="7" Column="3" />
-      <File FileName="Startup.cs" Line="4" Column="28" />
-      <File FileName="Models/Member.cs" Line="3" Column="1" />
+      <File FileName="Data/ChorchDbContext.cs" Line="32" Column="1" />
+      <File FileName="Startup.cs" Line="29" Column="108" />
+      <File FileName="Models/Member.cs" Line="19" Column="22" />
+      <File FileName="Chorch.csproj" Line="9" Column="39" />
+      <File FileName="appsettings.json" Line="1" Column="1" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="Chorch" expanded="True">
-            <Node name="Chorch" expanded="True">
-              <Node name="Data" expanded="True" />
-              <Node name="Models" expanded="True">
-                <Node name="Member.cs" selected="True" />
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

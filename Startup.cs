@@ -1,4 +1,4 @@
-﻿using Chorch.Models;
+﻿using Chorch.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -22,9 +22,12 @@ namespace Chorch
         {
             services.AddMvc();
 
-			var connstring = Configuration.GetConnectionString("ChorchConnection");
+			//var connString = Configuration["App::ConnectionString:ChorchConnection"];
+			var connString = Configuration.GetConnectionString("ChorchConnection");
+			//services.AddDbContext<ChorchDbContext>(options =>
+													//options.UseMySql(connectionString: connstring, mySqlOptionsAction: b => b.MigrationsAssembly("Chorch")));
 			services.AddDbContext<ChorchDbContext>(options =>
-													options.UseMySql(connstring, b => b.MigrationsAssembly("Chorch")));
+			                                       options.UseMySql(connString, b => b.MigrationsAssembly("Chorch")));
 
         }
 
