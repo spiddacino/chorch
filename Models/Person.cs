@@ -9,8 +9,8 @@ namespace Chorch.Models
 
 		public string ImageUrl { get; set; }
 
-		//[Required]
-		//public Status Status { get; set; }
+		[Required]
+		public OtherStatus Status { get; set; }
 
         [Required, Display(Name = "First Name")]
         [StringLength(30, ErrorMessage = "Limit first name to 30 characters.")]
@@ -33,14 +33,17 @@ namespace Chorch.Models
 		[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
 		public DateTime? WeddingAnniversary { get; set; }
 
-		//public Status MaritalStatus { get; set; }
+		public MaritalStatus MaritalStatus { get; set; }
 
 		[RegularExpression(@"^(\d{11})$", ErrorMessage = "Invalid Number")]
 		public string Mobile { get; set; }
 
-		//public virtual Church Church { get; set; }
+		[DataType(DataType.Date)]
+		[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+		public DateTime UpdateDate { get; set; }
 
+		public virtual Church Church { get; set; }
 
-        //public string Gender { get; set; }
+		public virtual Gender Gender { get; set; }
 	}
 }

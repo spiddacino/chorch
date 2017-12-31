@@ -5,6 +5,8 @@ namespace Chorch.Models
 {
 	public class Organization
 	{
+		public int Id { get; set; }
+
 		[Required, Display(Name = "Organization Name")]
 		[StringLength(40, ErrorMessage = "Limit Organization name to 30 characters.")]
 		public string Name { get; set; }

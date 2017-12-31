@@ -19,8 +19,8 @@ namespace Chorch.Models
 		public DateTime? EndDate { get; set; }
 
 		//Past or Scheduled
-		//[Required]
-		//public Status Status { get; set; }
+		[Required]
+		public Status Status { get; set; }
 
 		[Required, Display(Name = "Cost of Attendance")]
 		public decimal Cost { get; set; }

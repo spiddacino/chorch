@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Chorch.Models
 {
 	public class Church
 	{
+		public int Id { get; set; }
+
 		[Required, Display(Name = "Church Name")]
 		public string Name { get; set; }
 
@@ -25,7 +28,6 @@ namespace Chorch.Models
 		//Indicates if fully chartered or not
 		public ChurchStatus Status { get; set; }
 
-
 		[DataType(DataType.Date)]
 		[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
 		public DateTime FoundedDate { get; set; }
@@ -34,13 +36,14 @@ namespace Chorch.Models
 		[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
 		public DateTime LaunchDate { get; set; }
 
-		//public Person SeniorPastor { get; set; }
-		//public Person Secretary { get; set; }
+		public virtual Member SeniorPastor { get; set; }
+		public virtual Member Secretary { get; set; }
 
 		[RegularExpression(@"^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-‌​]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$", ErrorMessage = "Email is not valid")]
 		public String Email { get; set; }
 
-		//public ChurchBD1 ChurchSuperGroup { get; set; }
+		//public virtual District District { get; set; }
 
+		public virtual IEnumerable<Member> Members { get; set; }
 	}
 }

@@ -12,9 +12,10 @@ using System;
 namespace Chorch.Migrations
 {
     [DbContext(typeof(ChorchDbContext))]
-    partial class ChorchDbContextModelSnapshot : ModelSnapshot
+    [Migration("20171231163816_ModelModification1")]
+    partial class ModelModification1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

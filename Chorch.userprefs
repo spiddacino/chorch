@@ -1,7 +1,23 @@
 ﻿<Properties StartupConfiguration="{64195664-C26E-4CBC-87FE-3222982396C7}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Data/ChorchDbContext.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Models/Member.cs">
     <Files>
-      <File FileName="Data/ChorchDbContext.cs" Line="19" Column="19" />
+      <File FileName="Data/ChorchDbContext.cs" Line="32" Column="4" />
+      <File FileName="Models/Church.cs" Line="47" Column="33" />
+      <File FileName="Models/Event.cs" Line="8" Column="13" />
+      <File FileName="Models/ChurchBD1.cs" Line="14" Column="46" />
+      <File FileName="Models/ChurchBD2.cs" Line="14" Column="11" />
+      <File FileName="Models/ChurchStatus.cs" Line="1" Column="1" />
+      <File FileName="Models/ErrorViewModel.cs" Line="1" Column="1" />
+      <File FileName="Models/EventRegistration.cs" Line="15" Column="1" />
+      <File FileName="Models/Gender.cs" Line="11" Column="7" />
+      <File FileName="Models/Group.cs" Line="17" Column="2" />
+      <File FileName="Models/MaritalStatus.cs" Line="8" Column="1" />
+      <File FileName="Models/Organization.cs" Line="9" Column="3" />
+      <File FileName="Models/OtherStatus.cs" Line="6" Column="26" />
+      <File FileName="Models/Person.cs" Line="31" Column="1" />
+      <File FileName="Models/Status.cs" Line="7" Column="30" />
+      <File FileName="Models/Visitor.cs" Line="15" Column="3" />
+      <File FileName="Models/Member.cs" Line="4" Column="22" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

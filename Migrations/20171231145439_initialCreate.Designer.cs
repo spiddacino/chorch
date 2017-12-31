@@ -12,9 +12,10 @@ using System;
 namespace Chorch.Migrations
 {
     [DbContext(typeof(ChorchDbContext))]
-    partial class ChorchDbContextModelSnapshot : ModelSnapshot
+    [Migration("20171231145439_initialCreate")]
+    partial class initialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,8 +32,6 @@ namespace Chorch.Migrations
 
                     b.Property<string>("Description");
 
-                    b.Property<int?>("DistrictId");
-
                     b.Property<string>("Email");
 
                     b.Property<DateTime>("FoundedDate");
@@ -41,10 +40,6 @@ namespace Chorch.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired();
-
-                    b.Property<int?>("SecretaryId");
-
-                    b.Property<int?>("SeniorPastorId");
 
                     b.Property<int?>("StatusId");
 
@@ -56,38 +51,51 @@ namespace Chorch.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DistrictId");
-
-                    b.HasIndex("SecretaryId");
-
-                    b.HasIndex("SeniorPastorId");
-
                     b.HasIndex("StatusId");
 
                     b.ToTable("Church");
                 });
 
-            modelBuilder.Entity("Chorch.Models.District", b =>
+            modelBuilder.Entity("Chorch.Models.ChurchBD1", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("CreatedDate");
+                    b.Property<string>("Name")
+                        .IsRequired();
 
-                    b.Property<int?>("DistrictHQId");
+                    b.HasKey("Id");
+
+                    b.ToTable("ChurchSuperGroup1");
+                });
+
+            modelBuilder.Entity("Chorch.Models.ChurchBD2", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<string>("Name")
                         .IsRequired();
 
-                    b.Property<int?>("RegionId");
+                    b.HasKey("Id");
+
+                    b.ToTable("ChurchSuperGroup2");
+                });
+
+            modelBuilder.Entity("Chorch.Models.ChurchStatus", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Description")
+                        .IsRequired();
+
+                    b.Property<string>("Name")
+                        .IsRequired();
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DistrictHQId");
-
-                    b.HasIndex("RegionId");
-
-                    b.ToTable("ChurchSuperGroup1");
+                    b.ToTable("ChurchStatus");
                 });
 
             modelBuilder.Entity("Chorch.Models.Event", b =>
@@ -105,14 +113,10 @@ namespace Chorch.Migrations
 
                     b.Property<DateTime?>("StartDate");
 
-                    b.Property<int>("StatusId");
-
                     b.Property<string>("Title")
                         .IsRequired();
 
                     b.HasKey("Id");
-
-                    b.HasIndex("StatusId");
 
                     b.ToTable("Event");
                 });
@@ -122,15 +126,7 @@ namespace Chorch.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("AttendeeId");
-
-                    b.Property<int>("EventId");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("AttendeeId");
-
-                    b.HasIndex("EventId");
 
                     b.ToTable("EventRegistration");
                 });
@@ -201,8 +197,6 @@ namespace Chorch.Migrations
 
                     b.Property<string>("Address");
 
-                    b.Property<int?>("ChurchId");
-
                     b.Property<DateTime?>("DateOfBirth");
 
                     b.Property<string>("Discriminator")
@@ -214,56 +208,21 @@ namespace Chorch.Migrations
                         .IsRequired()
                         .HasMaxLength(30);
 
-                    b.Property<int?>("GenderId");
-
                     b.Property<string>("ImageUrl");
 
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasMaxLength(30);
 
-                    b.Property<int?>("MaritalStatusId");
-
                     b.Property<string>("Mobile");
-
-                    b.Property<int>("StatusId");
-
-                    b.Property<DateTime>("UpdateDate");
 
                     b.Property<DateTime?>("WeddingAnniversary");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ChurchId");
-
-                    b.HasIndex("GenderId");
-
-                    b.HasIndex("MaritalStatusId");
-
-                    b.HasIndex("StatusId");
-
                     b.ToTable("Persons");
 
                     b.HasDiscriminator<string>("Discriminator").HasValue("Person");
-                });
-
-            modelBuilder.Entity("Chorch.Models.Region", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("CreatedDate");
-
-                    b.Property<string>("Name")
-                        .IsRequired();
-
-                    b.Property<int?>("RegionHQId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("RegionHQId");
-
-                    b.ToTable("ChurchSuperGroup2");
                 });
 
             modelBuilder.Entity("Chorch.Models.Status", b =>
@@ -281,21 +240,6 @@ namespace Chorch.Migrations
                     b.HasDiscriminator<string>("Discriminator").HasValue("Status");
                 });
 
-            modelBuilder.Entity("Chorch.Models.Member", b =>
-                {
-                    b.HasBaseType("Chorch.Models.Person");
-
-                    b.Property<int?>("ChurchId1");
-
-                    b.Property<DateTime?>("MemberSince");
-
-                    b.HasIndex("ChurchId1");
-
-                    b.ToTable("Member");
-
-                    b.HasDiscriminator().HasValue("Member");
-                });
-
             modelBuilder.Entity("Chorch.Models.Visitor", b =>
                 {
                     b.HasBaseType("Chorch.Models.Person");
@@ -311,32 +255,15 @@ namespace Chorch.Migrations
                     b.HasDiscriminator().HasValue("Visitor");
                 });
 
-            modelBuilder.Entity("Chorch.Models.ChurchStatus", b =>
-                {
-                    b.HasBaseType("Chorch.Models.Status");
-
-                    b.Property<string>("Description")
-                        .IsRequired();
-
-                    b.Property<string>("Name")
-                        .IsRequired();
-
-                    b.ToTable("ChurchStatus");
-
-                    b.HasDiscriminator().HasValue("ChurchStatus");
-                });
-
             modelBuilder.Entity("Chorch.Models.Gender", b =>
                 {
                     b.HasBaseType("Chorch.Models.Status");
 
                     b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnName("Gender_Description");
+                        .IsRequired();
 
                     b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnName("Gender_Name");
+                        .IsRequired();
 
                     b.ToTable("Gender");
 
@@ -379,52 +306,9 @@ namespace Chorch.Migrations
 
             modelBuilder.Entity("Chorch.Models.Church", b =>
                 {
-                    b.HasOne("Chorch.Models.District")
-                        .WithMany("Churches")
-                        .HasForeignKey("DistrictId");
-
-                    b.HasOne("Chorch.Models.Member", "Secretary")
-                        .WithMany()
-                        .HasForeignKey("SecretaryId");
-
-                    b.HasOne("Chorch.Models.Member", "SeniorPastor")
-                        .WithMany()
-                        .HasForeignKey("SeniorPastorId");
-
                     b.HasOne("Chorch.Models.ChurchStatus", "Status")
                         .WithMany()
                         .HasForeignKey("StatusId");
-                });
-
-            modelBuilder.Entity("Chorch.Models.District", b =>
-                {
-                    b.HasOne("Chorch.Models.Church", "DistrictHQ")
-                        .WithMany()
-                        .HasForeignKey("DistrictHQId");
-
-                    b.HasOne("Chorch.Models.Region")
-                        .WithMany("Districts")
-                        .HasForeignKey("RegionId");
-                });
-
-            modelBuilder.Entity("Chorch.Models.Event", b =>
-                {
-                    b.HasOne("Chorch.Models.Status", "Status")
-                        .WithMany()
-                        .HasForeignKey("StatusId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Chorch.Models.EventRegistration", b =>
-                {
-                    b.HasOne("Chorch.Models.Person", "Attendee")
-                        .WithMany()
-                        .HasForeignKey("AttendeeId");
-
-                    b.HasOne("Chorch.Models.Event", "Event")
-                        .WithMany()
-                        .HasForeignKey("EventId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Chorch.Models.Organization", b =>
@@ -432,40 +316,6 @@ namespace Chorch.Migrations
                     b.HasOne("Chorch.Models.Person", "Founder")
                         .WithMany()
                         .HasForeignKey("FounderId");
-                });
-
-            modelBuilder.Entity("Chorch.Models.Person", b =>
-                {
-                    b.HasOne("Chorch.Models.Church", "Church")
-                        .WithMany()
-                        .HasForeignKey("ChurchId");
-
-                    b.HasOne("Chorch.Models.Gender", "Gender")
-                        .WithMany()
-                        .HasForeignKey("GenderId");
-
-                    b.HasOne("Chorch.Models.MaritalStatus", "MaritalStatus")
-                        .WithMany()
-                        .HasForeignKey("MaritalStatusId");
-
-                    b.HasOne("Chorch.Models.OtherStatus", "Status")
-                        .WithMany()
-                        .HasForeignKey("StatusId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Chorch.Models.Region", b =>
-                {
-                    b.HasOne("Chorch.Models.Church", "RegionHQ")
-                        .WithMany()
-                        .HasForeignKey("RegionHQId");
-                });
-
-            modelBuilder.Entity("Chorch.Models.Member", b =>
-                {
-                    b.HasOne("Chorch.Models.Church")
-                        .WithMany("Members")
-                        .HasForeignKey("ChurchId1");
                 });
 #pragma warning restore 612, 618
         }

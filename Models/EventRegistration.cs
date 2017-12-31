@@ -7,11 +7,11 @@ namespace Chorch.Models
 	{
 		public int Id { get; set; }
 
-		//[Required, Display(Name = "Event")]
-		//public Event Event { get; set; }
+		[Required, Display(Name = "Event")]
+		public Event Event { get; set; }
 
-		//[Display(Name = "Attendee")]
-		//public Person Attendee { get; set; }
+		[Display(Name = "Attendee")]
+		public Person Attendee { get; set; }
 
 	}
 }

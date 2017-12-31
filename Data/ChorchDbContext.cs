@@ -18,8 +18,8 @@ namespace Chorch.Data
 
 		public DbSet<Person> Persons { get; set; }
 		public DbSet<Church> Church { get; set; }
-		public DbSet<ChurchBD1> ChurchSuperGroup1 { get; set; }
-		public DbSet<ChurchBD2> ChurchSuperGroup2 { get; set; }
+		public DbSet<District> ChurchSuperGroup1 { get; set; }
+		public DbSet<Region> ChurchSuperGroup2 { get; set; }
 		public DbSet<ChurchStatus> ChurchStatus { get; set; }
 		public DbSet<Event> Event { get; set; }
 		public DbSet<EventRegistration> EventRegistration { get; set; }
